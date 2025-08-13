@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iamneo</title>
+    <style>
+        header {
+            color: rgb(24, 116, 126);
+        }
+        .container{
+            width: 500px;
+            height: 400px;
+            display: contents;
+            justify-content: center;
+            
+        }
+
+        thead tr {
+            background-color: rgb(76, 175, 80);
+            color: white;
+            font-weight: bold;
+            text-align: left;
+            text-align: left;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        .highlighted {
+            background-color: rgb(255, 255, 204);
+        }
+
+        .row-header {
+            background-color: rgb(76, 175, 80);
+            color: white;
+        }
+        tr{
+            width: 200px;
+            height: 30px;
+        }
+
+        th {
+            background-color: rgb(76, 175, 80);
+        }
+
+        td {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        tbody td:hover {
+            background-color: rgb(245, 245, 245);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Product Comparison</h1>
+    </header>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Product A</th>
+                    <th>Product B</th>
+                    <th>Product c</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="price row-header">Price</td>
+                    <td class="price">$199</td>
+                    <td class="price">$249</td>
+                    <td class="price">$179</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="row-header">Features</td>
+                    <td class="highlighted">Feature 1</td>
+                    <td>Feature 1</td>
+                    <td>Feature 1</td>
+                </tr>
+                <tr>
+                    <td class="highlighted">Feature 2</td>
+                    <td>Feature 3</td>
+                    <td>Feature 2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

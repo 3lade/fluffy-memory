@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Loan Calculator</h1>
+    </header>
+    <form action="" method="" onsubmit="Calculate(event)">
+        <label>Loan Amount:</label><br>
+        <input type="text" id="loanAmount" placeholder="Enter loan amount"/><br>
+        //dont take the type as number cz its not working, use text as we're using parseFloat anyway.
+        <label>Interest Rate (%):</label><br>
+        <input type="text" id="interestRate" placeholder="Enter interest rate"/><br>
+        <label>Loan Term (Years):</label><br>
+        <input type="text" id="loanTerm" placeholder="Enter loan term in years"/><br>
+        <button type="submit" id="button"">Calculate</button><br>
+        <div id="monthlyPayment"></div>
+        <div id="error"></div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

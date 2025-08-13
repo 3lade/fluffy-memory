@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #albumImage {
+            width: 700px;
+            height: 500px;
+        }
+
+        .container {
+            display: contents;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header {
+            background-color: green;
+            color: white;
+        }
+
+        footer {
+            background-color: green;
+            color: white;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            height: 30px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Accessible Photo Album</h1>
+        </header>
+        <h2>Photo Album</h2>
+        <div id="albumContainer">
+            <img id="albumImage">
+            <button type="submit" id="prevBtn">prev</button>
+            <button type="submit" id="nextBtn">next</button>
+        </div>
+        <footer>
+            <p>&copy; 2024</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: rgb(34,34,34);
+    color: white;
+    border-radius: 0 0 8px 8px;
+    font-size: 2.5em;
+    text-align: center;
+}
+nav{
+    background-color: rgb(34,34,34);
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    
+}
+nav ul li a:hover{
+    color: rgb(68,68,68);
+    
+}
+body{
+    background-color: #f1f1f1;
+}
+.container{
+    background-color: white;
+    max-width: 1200px;
+    min-height: 350px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+nav ul li a:active{
+    color: antiquewhite;
+}
+.gallery-item{
+    width: 300px;
+    height: 300px;
+    gap: 20px;
+    padding: 20px;
+    background-color: grey;
+    color: white;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 20px;
+}
+footer{
+    background-color: rgb(34,34,34);
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    color: white;
+}
+footer a{
+    color: green;
+}

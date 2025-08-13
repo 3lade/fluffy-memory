@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            #gameCanvas{
+                border: 1px solid black;
+                background-color: pink;
+            }
+            .container{
+                display: flex;
+                justify-content: center;
+            }
+            #gameOver{
+                background-color: red;
+                color: blue;
+                padding: 20px;
+                max-width: 200px;
+                display: none;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <h1 id="gameOver"></h1>
+    <h1 id="score"></h1>
+    
+</body>
+<script src="script.js"></script>
+</html>

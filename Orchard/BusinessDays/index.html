@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            justify-content: center;
+            text-align: center;
+        }
+        button{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculate Business Days</h1>
+        </header>
+        <h3>Start Date:</h3>
+        <input type="date" id="startDate" />
+        <h3>End Date:</h3>
+        <input type="date" id="endDate" />
+
+        <button type="submit" id="button" onclick="Calculate()">Calculate</button>
+        <div id="result"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

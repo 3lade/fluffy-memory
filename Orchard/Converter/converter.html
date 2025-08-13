@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>CM and Inch Converter</h1>
+    </header>
+    <label for="inputValue">Enter Value:</label><br>
+    <input type="number" id="inputValue"/><br>
+    <label for="direction">Convert Direction</label><br>
+    <select id="direction">
+        <option value="cm-to-in">Center --> Inch</option>
+        <option value="in-to-cm">Inch --> Centimeter</option>
+    </select>
+    <button type="submit" onclick="Convert()">Convert</button>
+    <p id="result"></p>
+    <p id="error"></p>
+    <script src="script.js"></script>
+</body>
+</html>
