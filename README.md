@@ -1,2 +1,2 @@
 # fluffy-memory
-Journey of MERN with a fliffy memory
+Journey of learning MERN with a fliffy memory
