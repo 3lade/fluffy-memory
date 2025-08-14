@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <title>Simple OOP in JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(53, 53, 53);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-family: 'Dancing Script', cursive;
+            
+
+        }
+
+        body {
+            background-color: lightgray;
+        }
+        button{
+            background-color: rgb(53,53,53);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .container {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            margin-right: 250px;
+            margin-top: 30px;
+            margin-left: 250px;
+            margin-bottom: 30px;
+        }
+        .booking-form{
+            align-content: left;
+        }
+        
+        .booking-section{
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items:left;
+            margin: auto;
+            padding: 30px;
+            width: 400px;
+
+        }
+        .error-message{
+            
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgb(53, 53, 53);
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        .error-message{
+            color: red;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        p{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Train Ticket Booking</h1>
+    </header>
+    <main class="container">
+        <section class="booking-section">
+            <form class="booking-form" onsubmit="verify(event)">
+                <h2>Book Your Tickets</h2>
+                <div>
+                    <label for="from">From:</label><br>
+                    <input type="text" id="from" />
+                </div>
+                <div>
+                    <label for="to">To:</label><br>
+                    <input type="text" id="to" />
+                </div>
+                <div>
+                    <label for="date">Date:</label><br>
+                    <input type="date" id="date" />
+                </div>
+                <div>
+                    <button type="submit" class="search-button">Search Trains</button>
+                </div>
+            </form>
+            <div class="error-message">
+                <p id="message"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Train Ticket Booking</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
