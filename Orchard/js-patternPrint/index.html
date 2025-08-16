@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    button{
+      background-color: blue;
+      color: white;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <h1>Asterisk Triangle Generator</h1>
+  <main>
+    <div>
+      <label for="numAsterisks">Enter the number of rows (positive integer): </label>
+      <input type="number" placeholder="e.g., 4" id="numAsterisks" min="0"/>
+      <button type="submit" id="generateButton" onclick="pattern()">Generate Pattern</button>
+    </div>
+  </main>
+  <pre id="patternOutput"></pre>
+  <script src="script.js"></script>
+</body>
+
+</html>
