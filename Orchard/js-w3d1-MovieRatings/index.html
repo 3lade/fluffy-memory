@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<body>
+  <header>
+    <h1>Movie Ratings Tracker</h1>
+  </header>
+  <div>
+    <input type="text" id="movie-name"/>
+    <input type="number" id="movie-rating" min="1" max="10"/>
+    <textarea id="movie-review" cols="30" rows="10"></textarea>
+    <button type="text" id="add-movie">Add Movie</button>
+    <div id="movie-list"></div>
+    <div id="average-rating"></div>
+  </div>
+</body>
+<script>
+  const ratings=[];
+  document.getElementById("add-movie").addEventListener('click', addMovie=()=>
+  {
+    const name=document.getElementById("movie-name").value.trim();
+    const rating=parseFloat(document.getElementById("movie-rating").value);
+    const review=document.getElementById("movie-review").value.trim();
+    
+    const list=document.getElementById("movie-list");
+    const avgRating=document.getElementById("average-rating");
+
+    if(!name || isNaN(rating) || rating<0 || rating>10 || !review)
+    {
+      avgRating.innerHTML=`<p style="color:red;">Please fill all fields with valid data</p>`;
+      return;
+    }
+    avgRating.textContent="";
+
+    const div=document.createElement("div");
+    const h3=document.createElement("h3");
+    h3.textContent=name;
+    const p1=document.createElement("p");
+    p1.textContent=`Rating: ${rating}`;
+    const p2=document.createElement("p");
+    p2.textContent=review;
+
+    div.append(h3,p1,p2);
+    list.append(div);
+    
+    ratings.push(rating);
+    const avg=ratings.reduce((sum,r)=>sum+r, 0)/ratings.length;
+    avgRating.textContent=`Average Rating: ${avg.toFixed(2)}`;
+  });
+</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Lookup</title>
+</head>
+<body>
+    <header>
+        <h2>Employee Salary Lookup</h2>
+    </header>
+    <div>
+        <label for="employeeName">Employee Name</label>
+        <input type="text" id="employeeName" placeholder="e.g., Jane Smith"/>
+    </div>
+    <div>
+        <button type="button" id="checkSalaryBtn">Check Salary</button>
+    </div>
+    <div>
+        <span id="error-message"></span>
+    </div>
+    <div id="salaryResult"></div>
+</body>
+<script>
+
+const employeeDatabase = [
+    { name: 'John Doe', role: 'Manager', salary: 75000 },
+    { name: 'Jane Smith', role: 'Developer', salary: 60000 },
+    { name: 'Emily Davis', role: 'Designer', salary: 55000 }
+];
+
+const errorMessage = document.getElementById("error-message");
+const salaryResult = document.getElementById("salaryResult");
+const employeeName = document.getElementById("employeeName");
+const checkSalaryBtn = document.getElementById("checkSalaryBtn");
+
+// ✅ Define the missing function
+function fetchEmployeeName(name) {
+    const found = employeeDatabase.find(emp => emp.name.toLowerCase() === name.toLowerCase());
+    if (found) {
+        return found;
+    } else {
+        throw new Error("Employee not found");
+    }
+}
+
+checkSalaryBtn.addEventListener('click', () => {
+    const name = employeeName.value.trim();
+
+    if (!name) {
+        errorMessage.textContent = "Please enter an Employee Name";
+        salaryResult.innerHTML = "";
+        return;
+    }
+
+    try {
+        const emp = fetchEmployeeName(name);
+        const { name: empName, salary, role } = emp;
+
+        salaryResult.innerHTML = `
+            <p><strong>Name: </strong>${empName}</p>
+            <p><strong>Role: </strong>${role}</p>
+            <p><strong>Salary: </strong>$${salary.toLocaleString()}</p>
+        `;
+        errorMessage.textContent = "";
+    } catch (error) {
+        errorMessage.textContent = error.message;
+        salaryResult.innerHTML = "";
+    }
+});
+
+</script>
+</html>
+<!-- 
+////////////////////////////WITH PROMISES////////////////////////////////////////////////
+//     {
+//         return new Promise((resolve, reject) => 
+//         {
+//             setTimeout(() =>{
+//                 const found = employeeDatabase.find((emp) => emp.name.toLowerCase() === name.toLowerCase());
+//                 if(found)
+//                 {
+//                     resolve(found)
+//                 }
+//                 else {
+//                     reject("Employee not found")
+//                 }
+//             },1000)
+//         })
+//     }
+
+
+//     checkSalaryBtn.addEventListener('click', ()=>
+//     {
+//         const name=employeeName.value;
+
+//         if(!name)
+//     {
+//         errorMessage.textContent="Please enter an Employee Name";
+//         return;
+//     }
+
+//         fetchEmployeeName(name).then((emp) => {
+//             const {name, salary, role}=emp;
+//             salaryResult.innerHTML=
+//             `
+//             <p><strong>Name: </strong>${name}</p>
+//             <p><strong>Role: </strong>${role}</p>
+//             <p><strong>Salary: </strong>${salary}</p>`
+//         })
+//         .catch(error =>
+//         {
+//             errorMessage.textContent="Employee not found"
+//         })
+//     })
+
+// </script>
+// </html> -->

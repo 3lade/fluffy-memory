@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management Webpage</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <h1>Webpage Data Manager</h1>
+
+    <div class="button-container">
+        <button id="showFormBtn" onclick="showContent('form')">Add Data Form</button>
+        <button id="showTableBtn" onclick="showContent('table')">Show Data Table</button>
+    </div>
+
+    <div id="formSection" class="content-section">
+        <h2>Add New Data</h2>
+        <form id="dataForm">
+            <label for="nameInput">Name:</label>
+            <input type="text" id="nameInput" placeholder="Enter name" required>
+
+            <label for="emailInput">Email:</label>
+            <input type="email" id="emailInput" placeholder="Enter email" required>
+
+            <button type="submit" id="addBtn">Add Data</button>
+        </form>
+    </div>
+
+    <div id="tableSection" class="content-section">
+        <h2>Stored Data</h2>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Data will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+
+</body>
+</html>

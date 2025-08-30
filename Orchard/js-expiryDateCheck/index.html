@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Expiry Tracter</title>
+</head>
+<body>
+  <h1>Product Expiry Tracker</h1>
+  <div>
+    <label for="mfgDate">Manufacturing Date:</label><br>
+    <input type="date" id="mfgDate"/>
+  </div>
+  <div>
+    <label for="shelfLife">Shelf Life (in days):</label><br>
+    <input type="number" id="shelfLife"/>
+  </div>
+  <div>
+    <button type="button" onclick="calculateExpiryDate()">Check Expiry</button>
+  </div>
+  <div id="expiryDate"></div>
+  <div id="status"></div>
+  <div id="error"></div>
+  <script src="script.js"></script>
+</body>
+</html>

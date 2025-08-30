@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+  <header>
+    <h1>Custom Text Replacement Tool</h1>
+  </header>
+  <form onsubmit="replacePattern(event)">
+    <div> 
+      <label for="inputText">Enter some text:</label><br>
+      <textarea name="textarea" id="inputText" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+      <label for="pattern">Enter the pattern to replace:</label><br>
+      <input type="text" id="pattern">
+    </div>
+    <div>
+      <label for="replacementValue">Enter the value to replace with:</label><br>
+      <input type="text" id="replacementValue">
+    </div>
+    <div>
+      <button type="submit">Replace Pattern</button>
+    </div>
+    <p>Modified Text:</p>
+    <div id="modifiedText"></div>
+  </form>
+  <script src="script.js"></script>
+</body>
+
+</html>

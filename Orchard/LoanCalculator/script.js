@@ -1,26 +1,21 @@
-
-function Calculate(event){
-
-    event.preventDefault();
-
+function Calculate()
+{
     const loanAmount=parseFloat(document.getElementById("loanAmount").value);
     const interestRate=parseFloat(document.getElementById("interestRate").value);
     const loanTerm=parseFloat(document.getElementById("loanTerm").value);
 
-    const interest=(interestRate/100)/12;
-    const dinominator=1-Math.pow((1+interest),-(loanTerm*12));
-    const monthlyPayment=(loanAmount*interest)/dinominator;
+    const result=document.getElementById("monthlyPayment");
 
-    const monthlyPay=document.getElementById("monthlyPayment");
-    const error=document.getElementById("error");
+    const IR=((interestRate/100)/12)
+    const totalPayments=loanTerm*12
+    const denominator=1-Math.pow((1+IR),-totalPayments)
+    const MonthlyPay=((loanAmount*IR)/denominator).toFixed(2)
 
-    if(loanAmount>0 && interestRate>0 && loanTerm>0) {
-        
-        document.getElementById("monthlyPayment").innerHTML=`<p><strong>Monthly Payment: ${monthlyPayment}</strong></p>`;
+    if(isNaN(loanAmount) || loanAmount<=0 || isNaN(interestRate) || isNaN(loanTerm))
+    {
+        result.innerHTML=`<p><strong>Please enter valid positive numbers for inputs.</strong></p>`
     }
-    else {
-        
-        document.getElementById("error").innerHTML=`<p>Please enter valid positive numbers in all fields.<p>`;
-        
+    else{
+        result.innerHTML=`Monthly Payment: ${MonthlyPay}`;
     }
 }

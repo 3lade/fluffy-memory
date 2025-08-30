@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    body {
+      background-color: grey;
+    }
+
+    #search-input {
+      margin: 20px;
+      /* align-content: center; */
+      /* max-width: 90%; */
+      padding: 10px;
+      align-content: center;
+      border-radius: 8px solid;
+    }
+
+    .container {
+      padding: 15px;
+      background-color: white;
+      border-radius: 5px;
+      padding: 20px;
+      width: 50%;
+      height: 600px;
+      margin-left: 300px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+
+
+    }
+
+    .card {
+      width: 560px;
+      height: 100px;
+      background-color: rgb(178, 252, 252);
+      border-radius: 8px;
+      border: 1px solid white;
+      margin: 10px;
+      padding: 10px;
+    }
+    .card h2{
+      color: blue;
+      padding: 2px;
+    }
+    .card h3{
+      padding: 4px;
+    }
+
+
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Book Information Viewer</h1>
+    </header>
+    <div>
+      <input type="text" id="search-input" size="75" placeholder="Search by book title...."/>
+    </div>
+    <div id="book-list"></div>
+    <div>
+      <p id="message"></p>
+    </div>
+    <!-- <div class="card">
+      <h2>The Alchemist</h2>
+      <h3>by Paulo Aoelho</h3>
+      <p>A philosophical story about a shepherd's journey to find treasure.</p>
+    </div>
+    <div class="card">
+      <h2>The Alchemist</h2>
+      <h3>by Paulo Aoelho</h3>
+      <p>A philosophical story about a shepherd's journey to find treasure.</p>
+    </div>
+    <div class="card">
+      <h2>To Kill a Mockingbird</h2>
+      <h3>by Paulo Aoelho</h3>
+      <p>A philosophical story about a shepherd's journey to find treasure.</p>
+    </div>
+    <div class="card">
+      <h2>The Alchemist</h2>
+      <h3>by Paulo Aoelho</h3>
+      <p>A philosophical story about a shepherd's journey to find treasure.</p>
+    </div> -->
+
+
+
+  </div>
+</body>
+<script src="script.js"></script>
+<script src="books.js"></script>
+</html>

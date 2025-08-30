@@ -1,0 +1,129 @@
+/* Page background */
+body {
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form container */
+.form-container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Headings */
+.form-container h2 {
+  font-weight: 700;
+  color: #1565c0;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.form-control,
+.form-check-input {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus,
+.form-check-input:focus {
+  border-color: #42a5f5;
+  box-shadow: 0 0 0 0.2rem rgba(66, 165, 245, 0.25);
+}
+
+/* Submit button */
+.btn-primary {
+  background: linear-gradient(90deg, #42a5f5, #7e57c2);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #1e88e5, #5e35b1);
+  transform: translateY(-1px);
+}
+
+/* Toasts */
+.toast {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.toast .toast-body {
+  font-weight: 500;
+}
+
+.toast-bottom-left {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1055;
+}
+
+.toast-top-right {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1055;
+}
+
+/* Blur effect on background */
+.blurred {
+  filter: blur(6px);
+  transition: filter 0.2s ease;
+}
+
+/* Table styling */
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.table thead {
+  background: linear-gradient(90deg, #42a5f5, #7e57c2);
+  color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: background-color 0.2s ease;
+}
+
+/* Delete button */
+.btn-danger {
+  background: #ef5350;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #d32f2f;
+}
+
+/* Agreement checkboxes */
+#agreements .form-check-label {
+  user-select: none;
+  font-size: 0.95rem;
+}
+
+#agreements .form-check-input:checked {
+  background-color: #42a5f5;
+  border-color: #42a5f5;
+}

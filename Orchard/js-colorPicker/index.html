@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"/>
+  
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Incteractive Color Picker</h1>
+    </header>
+
+    <main>
+
+        <div id="colorDisplay" style="height: 200px; width: 200px;"></div>
+
+        <div>
+          <label for="redRange">Red:</label>
+          <input type="range" min="0" step="1" id="redRange" max="255"/>
+        </div>
+        
+        <div>
+          <label for="greenRange">Green:</label>
+          <input type="range" min="0" step="1" id="greenRange" max="255"/>
+        </div>
+
+        <div>
+          <label for="blueRange">Blue:</label>
+          <input type="range" min="0" step="1" id="blueRange" max="255"/>
+        </div>
+
+        <div>
+          <button id="randomColorBtn">Random Color</button>
+        </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+  
+</body>
+</html>

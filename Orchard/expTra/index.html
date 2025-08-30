@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* #searching,
+        table{
+            display: none;
+        } */
+        /* .my-button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            Define the transition on the base element
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        /* }
+
+        .my-button:hover {
+            /* Define the transform on the hover state */
+            /* background-color: #2980b9; */
+            /* transform: scale(1.1) rotate(5deg);
+        /* } */ 
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .income {
+            color: green;
+        }
+
+        .expense {
+            color: red;
+        }
+
+        #nameError,
+        #dateError,
+        #categoryError,
+        #amountError,
+        #radioError,
+        #checkboxError {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Expense Tracker</h1>
+    </header>
+    <form id="expenceForm" onsubmit="handleSubmit(event)">
+        <div class="container">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Name" />
+                <small id="nameError"></small>
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" id="date" placeholder="Date" />
+                <small id="dateError"></small>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <input type="text" id="category" placeholder="Category" />
+                <small id="categoryError"></small>
+            </div>
+            <div>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="Amount" />
+                <small id="amountError"></small>
+            </div>
+            <div>
+                <label for="tracker">Choose:</label>
+                <input type="radio" name="tracker" value="income" id="incomeRadio" />
+                <label for="incomeRadio">Income</label>
+                <input type="radio" name="tracker" value="expense" id="expenseRadio" />
+                <label for="expenseRadio">Expense</label>
+                <small id="radioError"></small>
+            </div>
+            <div>
+                <input type="checkbox" id="confirmation" />
+                <label for="confirmation">I confirm this entry is accurate</label>
+                <small id="checkboxError"></small>
+            </div>
+            <div>
+                <button type="submit" id="submitBtn">Submit</button>
+            </div>
+            <div>
+                <label for="searching">Search</label>
+                <input type="text" id="searching" placeholder="Search the category...." onkeyup="SearchOperation()" />
+            </div>
+    </form>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Date</td>
+                    <td>Category</td>
+                    <td>Amount</td>
+                    <td>Type</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody id="tbodyPart">
+
+            </tbody>
+        </table>
+        <div class="summary">
+            Total Income: ₹<span id="totalIncome">0</span>
+            Total Expense: ₹<span id="totalExpense">0</span>
+        </div>
+    </div>
+
+    </div>
+
+
+    <script>
+        let totalIncome = 0;
+        let totalExpense = 0;
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('expenceForm');
+
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("dateError").textContent = "";
+            document.getElementById("categoryError").textContent = "";
+            document.getElementById("amountError").textContent = "";
+            document.getElementById("radioError").textContent = "";
+            document.getElementById("checkboxError").textContent = "";
+
+
+            const name = document.getElementById("name").value.trim();
+            const date = document.getElementById("date").value.trim();
+            const category = document.getElementById("category").value.trim();
+            const Tamount = document.getElementById("amount");
+            const amount = parseFloat(Tamount.value);
+            const selectedType = document.querySelector("input[name='tracker']:checked");
+            console.log(selectedType);
+            const isConfirmed = document.getElementById("confirmation").checked;
+
+
+
+            let isValid = true;
+
+            // Validation checks
+            if (!name) {
+                document.getElementById("nameError").textContent = "Name is required.";
+                isValid = false;
+            }
+            if (!date) {
+                document.getElementById("dateError").textContent = "Date is required.";
+                isValid = false;
+            }
+            if (!category) {
+                document.getElementById("categoryError").textContent = "Category is required.";
+                isValid = false;
+            }
+            if (isNaN(amount) || amount <= 0) {
+                document.getElementById("amountError").textContent = "Please enter a valid positive amount.";
+                isValid = false;
+            }
+            if (!selectedType) {
+                document.getElementById("radioError").textContent = "Choose a button";
+                isValid = false;
+            }
+            if (!isConfirmed) {
+                document.getElementById("checkboxError").textContent = "Please confirm your entry.";
+                isValid = false;
+            }
+            if (!isValid) {
+                return;
+            }
+
+            const type = selectedType.value;
+            console.log(type);
+
+            const tbodyPart = document.getElementById("tbodyPart");
+            const row = tbodyPart.insertRow();
+
+            row.insertCell(0).textContent = name;
+            row.insertCell(1).textContent = date;
+            row.insertCell(2).textContent = category;
+
+            const amountCell = row.insertCell(3);
+            const typeCell = row.insertCell(4);
+            const actionCell = row.insertCell(5);
+
+            if (type == 'income') {
+                amountCell.textContent = `+₹${amount.toFixed(2)}`;
+                amountCell.classList.add('income');
+                typeCell.textContent = "Income";
+                totalIncome += amount;
+            }
+            else if (type == 'expense') {
+                amountCell.textContent = `-₹${amount.toFixed(2)}`;
+                amountCell.classList.add('expense');
+                typeCell.textContent = "Expense";
+                totalExpense += amount
+            }
+
+            actionCell.innerHTML = `<button onclick="deleteRow(this, ${amount}, '${type}')">Delete</button>`
+
+            updateSummary();
+            form.reset();
+            // function 
+        }
+
+        function deleteRow(button, amount, type) {
+            // const row = button.parentNode.parentNode;
+            // row.parentNode.remove();
+            //no need for button inside the argument ;)
+            const row = button.parentNode.parentNode;
+            row.remove();
+
+            if (type === 'income') {
+                totalIncome -= amount;
+            }
+            else if (type === 'expense') {
+                totalExpense -= amount;
+            }
+            updateSummary();
+        }
+
+        function updateSummary() {
+            document.getElementById("totalIncome").textContent = totalIncome.toFixed(2);
+            document.getElementById("totalExpense").textContent = totalExpense.toFixed(2);
+        }
+
+
+        // function SearchOperation() {
+        //     const searchValue = document.getElementById("searching").value.toLowerCase();
+        //     const rows = document.querySelectorAll("#tbodyPart tr");
+
+        //     rows.forEach((row) => {
+        //         const category = row.cells[2].textContent.toLowerCase();
+        //         row.style.display = category.includes(searchValue) ? '' : 'none';
+        //     });
+        // }
+
+        //tusing filter instead
+        document.getElementById("searching").addEventListener('input', () => {
+            const searchValue = document.getElementById("searching").value.toLowerCase();
+            const rows = Array.from(document.querySelectorAll("#tbodyPart tr"));
+
+            rows.filter((row) => {
+                const category = row.cells[2].textContent.toLowerCase();
+                return category.includes(searchValue);
+            }).forEach(row => row.style.display = '');
+
+            rows.filter((row) => {
+                const category = row.cells[2].textContent.toLowerCase();
+                return !category.includes(searchValue);
+            }).forEach(row => row.style.display = 'none');
+        })
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- //rowArray=Array.from(document.querySelectorAll("tbody tr"));
+    sortbutton.classList.remove("hide");
+    descbutton.classList.remove("hide");
+    result.textContent="Movie added successfully!";
+    document.getElementById("forms").reset();
+}); -->
+<!-- sortbutton.addEventListener('click',()=>{
+    let columIndex=1;
+    function sortasc(columIndex,rowArray,body)
+    {
+        rowArray.sort((a,b)=>{
+            const val1=a.cells[columIndex].textContent.toLowerCase();
+            const val2=b.cells[columIndex].textContent.toLowerCase();
+            const num1=parseInt(val1);
+            const num2=parseInt(val2);
+            if(!isNaN(num1)&&!isNaN(num2))
+            {
+                return num1-num2;
+            }
+            return  val1.localeCompare(var2);
+        })
+        body.textContent="";
+        rowArray.forEach(row => body.appendChild(row));
+    }
+    sortasc(columIndex, rowArray, body);
+}) -->

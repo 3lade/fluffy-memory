@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Car Wash Appoinment Tracker</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #submitBtn {
+            background-color: rgb(255, 111, 97);
+        }
+
+        body {
+            display: flex;
+            /* text-align: center; */
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            /* text-align: center; */
+            width: 54%;
+            margin: 50px auto;
+            background-color: #ffff;
+            padding: 20px;
+            /* border-radius: 5px; */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        fieldset {
+            padding: 5px;
+            background-color: #f2f2f2;
+            /* border: none; */
+        }
+
+        input,
+        select {
+            margin-bottom: 10px;
+            width: 100%;
+            border: none;
+            display: block;
+            padding: 8px;
+            background-color: #f3f3f3;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .ckbox {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .ckbox input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            color: #ffff;
+            border-radius: 7px;
+            border: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        h2,
+        h3 {
+            margin-top: 10px;
+            color: rgb(24, 107, 95);
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: rgb(24, 107, 95);
+            color: #fff;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="appointmentForm">
+        <h2>Car Wash Appoinment Tracker</h2>
+        <div>
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name" placeholder="Enter full name">
+        </div>
+        <label for="carType">Car Type:</label>
+        <select name="" id="carType">
+            <option value="SUV">SUV ($60/h)</option>
+            <option value="Sedan">Sedan ($50/h)</option>
+            <option value="Hatchback">Hatchback ($40/h)</option>
+        </select>
+        <label for="hours">Base Wash Time (in hours):</label>
+        <input type="number" id="hours" placeholder="Enter number of hours">
+        <fieldset class="extras-group">
+            <legend>Add-ons:</legend>
+            <div class="ckbox">
+                <input type="checkbox" value="Waxing" data-fee="20">
+                <label for="Waxing">Waxing (+$20)</label>
+
+            </div>
+
+            <div class="ckbox">
+                <input type="checkbox" value="Interior Cleaning" data-fee="30">
+                <label for="Interior">Interior (+$30)</label>
+
+            </div>
+
+            <div class="ckbox">
+                <input type="checkbox" value="Tire Polish" data-fee="15">
+                <label for="TirePolish">Tire Polish (+$15)</label>
+
+            </div>
+        </fieldset>
+        <button type="button" id="submitBtn">Add Appoinment</button>
+
+        <p id="error-msg"></p>
+
+        <table>
+            <h3>Appoinment Records</h3>
+            <thead>
+                <th>Name</th>
+                <th>Car Type</th>
+                <th>Hours</th>
+                <th>Services</th>
+                <th>Total ($)</th>
+            </thead>
+            <tbody id="recordsBody">
+
+            </tbody>
+        </table>
+    </form>
+</body>
+<script>
+    document.getElementById('submitBtn').addEventListener("click", () => {
+        let name = document.getElementById("name").value;
+        let carType = document.getElementById("carType").value;
+        let hours = parseInt(document.getElementById("hours").value);
+        let errorMsg = document.getElementById("error-msg");
+        // let wax = document.querySelector('input[value="Waxing"]:checked');
+        // let interior = document.querySelector('input[value="Interior Cleaning"]:checked');
+        // let polish = document.querySelector('input[value="Tire Polish"]:checked');
+
+        if (!name || !carType || !hours || hours <= 0) {
+            errorMsg.textContent = "Please enter a valid name and number of hours.";
+            return;
+        } else {
+            errorMsg.textContent = "";
+        }
+        let base = 0;
+        if (carType === 'SUV') {
+            base = 60;
+        } else if (carType === 'Sedan') {
+            base = 50;
+        } else {
+            base = 40;
+        }
+        let cost = base * hours;
+
+        let addons = 0;
+        let selected = [];
+        document.querySelectorAll('.extras-group input[type="checkbox"]:checked').forEach((checkbox) => {
+            let fee = parseInt(checkbox.getAttribute('data-fee'));
+            addons += fee * hours;
+            selected.push(checkbox.value);
+        })
+
+        let total = cost + addons;
+
+        let newRow = document.createElement('tr');
+
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
+        let td4 = document.createElement('td');
+        let td5 = document.createElement('td');
+
+        td1.textContent = name;
+        td2.textContent = carType;
+        td3.textContent = hours;
+        td4.textContent = selected.join(", ");
+        console.log(td4)
+        td5.textContent = total.toFixed(2);
+
+        newRow.appendChild(td1);
+        newRow.appendChild(td2);
+        newRow.appendChild(td3);
+        newRow.appendChild(td4);
+        newRow.appendChild(td5);
+
+        document.getElementById('recordsBody').appendChild(newRow);
+
+        document.getElementById('appointmentForm').reset();
+
+
+    })
+</script>
+
+</html>

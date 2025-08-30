@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Seat Availability</title>
+    <style>
+        #checkAvailabilityBtn {
+            background-color: rgb(0, 123, 255);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Flight Seat Availability</h2>
+    </header>
+    <form>
+        <div>
+            <label for="flightNumber">Flight Number</label>
+            <input type="text" id="flightNumber" placeholder="e.g., AI101" />
+        </div>
+        <div>
+            <button type="button" id="checkAvailabilityBtn">Check Availability</button>
+        </div>
+        <div id="error-message"></div>
+        <div id="result"></div>
+    </form>
+</body>
+
+<script>
+
+    const errorMsg=document.getElementById("error-message");
+    const result=document.getElementById("result");
+
+    const flightNumber=document.getElementById("flightNumber");
+    const checkAvailabilityBtn=document.getElementById("checkAvailabilityBtn");
+    
+    const flightDatabase = [
+        {id: 'AI101', seats: 12},
+        {id: 'BA202', seats: 0}
+    ]
+
+    function flightDetails(id)
+    {
+        const found = flightDatabase.find(fly => fly.id.toLowerCase() === id.toLowerCase());
+        if(found)
+        {
+            return found;
+        }
+        else {
+            throw new Error("Flight not found")
+        }
+    }
+
+    checkAvailabilityBtn.addEventListener('click', () =>
+    {
+        const id=flightNumber.value;
+
+        if(!id)
+        {
+            errorMsg.textContent='Please enter a flight number';
+            result.innerHTML="";
+            return;
+        }
+        try {
+            const flight = flightDetails(id);
+            result.innerHTML=`Flight: ${flight.id}, Seats Available: ${flight.seats}`
+            errorMsg.textContent="";
+        }
+        catch(error){
+            errorMsg.textContent="Flight not found"; //error.message
+            result.innerHTML="";
+
+        }
+    })    
+
+
+</script>
+
+</html>

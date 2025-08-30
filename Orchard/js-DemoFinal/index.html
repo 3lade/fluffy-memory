@@ -1,0 +1,181 @@
+<!-- et -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        /* #searching,
+        table{
+            display: none;
+        } */
+        /* .my-button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            Define the transition on the base element
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        /* }
+
+        .my-button:hover {
+            /* Define the transform on the hover state */
+            /* background-color: #2980b9; */
+            /* transform: scale(1.1) rotate(5deg);
+        /* } */ 
+    </style>
+</head>
+
+<body>
+    <heading>
+        <h2>Pet Shop Management</h2>
+    </heading>
+    <div>
+        <label for="petName">Pet Name:</label>
+        <input type="text" id="petName" />
+    </div>
+    <div>
+        <label for="species">Species:</label>
+        <select id="species">
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Fish">Fish</option>
+        </select>
+    </div>
+    <div>
+        <label for="age">Age (in years:)</label>
+        <input type="number" id="age" />
+    </div>
+    <div>
+        <input type="checkbox" id="vaccinated" value="vaccinated" />
+        <label for="vaccinated">Vaccinated</label>
+    </div>
+    <div>
+        <button type="button" id="addPetBtn">Add Pet</button>
+    </div>
+    <div>
+        <span id="error-message"></span>
+    </div>
+    <div>
+        <input type="text" id="searching" onkeyup="searchOperation()" />
+    </div>
+    <div>
+        <table id="tableShow">
+            <thead>
+                <tr>
+                    <th>Pet Name</th>
+                    <th>Species</th>
+                    <th>Age (in years)</th>
+                    <th>Vaccinated</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+<script>
+    const addBtn = document.getElementById("addPetBtn");
+    addBtn.addEventListener('click', () => {
+        const petName = document.getElementById("petName");
+        const Species = document.getElementById("species");
+        const Age = document.getElementById("age");
+        const vaccinated = document.getElementById("vaccinated");
+        const error = document.getElementById("error-message");
+
+        const name = petName.value;
+        const species = Species.value;
+        const age = parseInt(Age.value);
+        const selectVaccine = vaccinated.checked;
+
+        if (!name || !species || isNaN(age) || age <= 0) {
+            error.textContent = "Enter valid input"
+        }
+
+        const type = (selectVaccine) ? "Vaccinated" : "Not Vaccinated";
+
+        const tableBody = document.getElementById("tableBody");
+
+        const newRow = tableBody.insertRow();
+        newRow.insertCell(0).textContent = name;
+        newRow.insertCell(1).textContent = species;
+        newRow.insertCell(2).textContent = age;
+        newRow.insertCell(3).textContent = type;
+        const action = newRow.insertCell(4);
+
+        const editBtn = document.createElement('button');
+        editBtn.innerHTML = "Edit";
+        editBtn.addEventListener('click', () => {
+            petName.value = newRow.cells[0].textContent;
+            Species.value = newRow.cells[1].textContent;
+            Age.value = newRow.cells[2].textContent;
+            vaccinated.checked = newRow.cells[3].textContent === "Vaccinated";
+
+            newRow.remove();
+        })
+        newRow.append(editBtn);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.addEventListener('click', () => {
+            newRow.remove();
+        })
+        newRow.append(deleteBtn);
+
+        tableBody.append(newRow);
+
+        petName.value = "";
+        Species.value = "";
+        Age.value = "";
+        vaccinated.checked = false;
+
+    })
+
+    function searchOperation() {
+        const search = document.getElementById("searching").value.toLowerCase();
+        const rows = document.querySelectorAll("#tableBody tr");
+
+        rows.forEach((row) => {
+            const names = row.cells[0].textContent.toLowerCase();
+            row.style.display = names.includes(search) ? '' : 'none';
+        })
+    }
+</script>
+
+</html>
+
+
+<!-- //rowArray=Array.from(document.querySelectorAll("tbody tr"));
+    sortbutton.classList.remove("hide");
+    descbutton.classList.remove("hide");
+    result.textContent="Movie added successfully!";
+    document.getElementById("forms").reset();
+}); -->
+<!-- sortbutton.addEventListener('click',()=>{
+    let columIndex=1;
+    function sortasc(columIndex,rowArray,body)
+    {
+        rowArray.sort((a,b)=>{
+            const val1=a.cells[columIndex].textContent.toLowerCase();
+            const val2=b.cells[columIndex].textContent.toLowerCase();
+            const num1=parseInt(val1);
+            const num2=parseInt(val2);
+            if(!isNaN(num1)&&!isNaN(num2))
+            {
+                return num1-num2;
+            }
+            return  val1.localeCompare(var2);
+        })
+        body.textContent="";
+        rowArray.forEach(row => body.appendChild(row));
+    }
+    sortasc(columIndex, rowArray, body);
+}) -->

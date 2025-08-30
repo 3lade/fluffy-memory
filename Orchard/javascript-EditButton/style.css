@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 1px solid #007bff;
+    background-color: #f8f9fa;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #e2e6ea;
+}
+
+.button-container button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Hide content sections by default */
+#formSection,
+#tableSection {
+    display: none;
+}
+
+.content-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content-section h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+#dataForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#dataForm input[type="text"],
+#dataForm input[type="email"] {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#dataForm button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#dataForm button:hover {
+    background-color: #218838;
+}
+
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#dataTable th, #dataTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#dataTable th {
+    background-color: #f2f2f2;
+    color: #555;
+}
+
+#dataTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#dataTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
