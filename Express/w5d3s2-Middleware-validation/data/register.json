@@ -1,0 +1,32 @@
+[
+  {
+    "id": "2c5b94b88c10b67f",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "registeredAt": "2025-09-03T10:53:42.100Z"
+  },
+  {
+    "id": "874ba5d311d57645",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "registeredAt": "2025-09-03T10:54:05.395Z"
+  },
+  {
+    "id": "6b9e028008ceb4a9",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "registeredAt": "2025-09-03T10:54:16.388Z"
+  },
+  {
+    "id": "f932bde7d82c915f",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "registeredAt": "2025-09-03T10:54:59.198Z"
+  },
+  {
+    "id": "1891599ce3712185",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "registeredAt": "2025-09-03T10:56:09.612Z"
+  }
+]

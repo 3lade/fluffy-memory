@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Product</h1>
+
+        <form action="/submit" method="post" id="productForm">
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" name="name" id="name" value="<%= formData.naem %>">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price ($)</label>
+                <input type="number" name="price" id="price" min="0.01" step="0.01" value="<%= formData.price %>">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="" disabled <%= !formData.category ? 'selected' : '' %>>Select</option>
+                    <option value="Electronics" <%= !formData.category ===  "Electronics" ? 'selected' : '' %>>Electronics</option>
+                    <option value="Books" <%= !formData.category ===  "Books" ? 'selected' : '' %>>Books</option>
+                    <option value="Clothing" <%= !formData.category ===  "Clothing" ? 'selected' : '' %>>Clothing</option>
+                </select>
+            </div>
+            <div id="error" class="error-message" style="display: none;">All fields are required.</div>
+            <button class="btn" type="submit">Submit</button>
+
+            <% if(error) { %>
+                <div> <%= error %></div>
+            <% } %>
+
+        </form>
+
+    </div>
+    <script type="text/javascript">
+        const errorMsg = document.getElementById("error")
+        const form = document.getElementById("productForm");
+        form.addEventListener('subnit', (event) => {
+            // event.preventDefault();
+            const name = form.name.value;
+            const price = form.price.value;
+            const category= form.category.value;
+
+            console.log(name, price, category)
+
+            errors = [];
+
+            if(!name)
+            {
+                errors.push("Name not there")
+            }
+            if(!price || isNaN(price) || Number(price) < 0)
+            {
+                errors.push("price is not valid")
+            }
+            if(!category)
+            {
+                errors.push("category is not selected")
+            }
+
+            if(errors.length > 0)
+            {
+                event.preventDefault();
+                errorMsg.style.display = 'block';
+                errorMsg.innerHTML = errors.join('<br>')
+            } else {
+                errorMsg.style.display = 'none';
+                errorMsg.innerHTML = "";
+            }
+        })
+    </script>
+    
+</body>
+</html>
