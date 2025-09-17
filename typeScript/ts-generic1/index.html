@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- ✅ Charset specified -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ Viewport specified -->
+    <title>Task Manager</title> <!-- ✅ Title specified -->
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+
+    <form>
+        <label for="task">Task Description:</label>
+        <input type="text" id="task" name="task">
+
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+            <option value="">Select Priority</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+
+        <button type="button" id="addTaskBtn">Add Task</button>
+    </form>
+
+    <div id="error-message" role="alert" aria-live="assertive"></div>
+    <ul id="task-list"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>

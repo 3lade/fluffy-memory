@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Hotel Reservation System</h1>
+    </header>
+    <label for="guest-name">Guest Name:</label>
+    <input type="text" id="guest-name">
+    <label for="check-in-date">Check-in Date:</label>
+    <input type="date" id="check-in-date">
+    <label for="check-out-date">Check-out Date:</label>
+    <input type="date" id="check-out-date">
+    <label for="room-type">Room Type:</label>
+    <select name="" id="room-type">
+        <option value="Standard">Standard</option>
+        <option value="Deluxe">Deluxe</option>
+        <option value="Suite">Suite</option>
+    </select>
+    <button type="button" id="add-reservation">Add Reservation</button>
+    <div id="error-message"></div>
+    <div id="reservation-list"></div>
+    <script src="script.js"></script>
+</body>
+</html>
