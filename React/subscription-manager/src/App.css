@@ -1,0 +1,119 @@
+body {
+  background-color: dimgray;
+  margin: 0;
+  padding: 0;
+}
+
+.mainContainer {
+  border: 1px solid black;
+  margin: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 15px;
+  text-align: center;
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 10px;
+  /* max-height: 85vh; */
+}
+
+.container {
+  text-align: center;
+  max-width: 100%;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 8px;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+.submit-btn {
+  background-color: teal;
+  color: white;
+  width: 93%;
+  margin: 8px;
+  padding: 8px;
+  border-collapse: collapse;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: rgb(39, 197, 31);
+  transform: scale(1.05);
+}
+
+.remove-btn {
+  background-color: red;
+  border-radius: 10px;
+  width: 80%;
+  color: white;
+  transition: transform 0.5s ease-in-out;
+}
+
+.remove-btn:hover {
+  background-color: rgb(255, 89, 56);
+  transform: scale(1.05);
+}
+
+.sub-table {
+  border: 1px solid black;
+  width: 95%;
+  margin: 15px;
+  padding: 15px;
+}
+
+.sub-table, tr {
+  margin: 8px;
+  padding: 8px;
+}
+
+.sub-table tr:hover {
+  background-color: white;
+}
+
+.item {
+  border: 1px solid black;
+  padding: 8px;
+  margin: 8px;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.list {
+  border: 1px solid black;
+  padding: 8px;
+  margin: 8px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.form, input {
+  width: 90%;
+  margin: 8px;
+  padding: 8px;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+
+.form input:hover {
+  background-color: aliceblue;
+}
+
+.form, select {
+  width: 92%;
+  margin: 8px;
+  padding: 8px;
+}
+
+.form select:hover {
+  background-color: aliceblue;
+}

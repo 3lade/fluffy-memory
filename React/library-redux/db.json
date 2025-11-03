@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "id": "36fa",
+      "title": "yesh",
+      "author": "yesh",
+      "genre": "Non-Fiction",
+      "price": "3456",
+      "quantity": "87"
+    },
+    {
+      "id": "09c3",
+      "title": "LOTR",
+      "author": "sammy",
+      "genre": "History",
+      "price": "677",
+      "quantity": "65"
+    },
+    {
+      "id": "371a",
+      "title": "Hobbit",
+      "author": "bilbo Baggins",
+      "genre": "Fiction",
+      "price": "456",
+      "quantity": "87"
+    }
+  ]
+}

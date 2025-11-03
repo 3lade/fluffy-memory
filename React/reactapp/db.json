@@ -1,0 +1,40 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "Fiction",
+      "rentalName": "Alice Johnson",
+      "rentalDate": "2025-10-01",
+      "price": 150
+    },
+    {
+      "id": "2",
+      "title": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "genre": "Science",
+      "rentalName": "Bob Smith",
+      "rentalDate": "2025-10-03",
+      "price": 200
+    },
+    {
+      "id": "ae57",
+      "title": "game of thrones",
+      "author": "jennifer",
+      "genre": "Fiction",
+      "rentalName": "jaanu",
+      "rentalDate": "2025-10-23",
+      "price": "34"
+    },
+    {
+      "id": "69a3",
+      "title": "baby",
+      "author": "bay",
+      "genre": "Science",
+      "rentalName": "bay",
+      "rentalDate": "2025-01-31",
+      "price": "98"
+    }
+  ]
+}

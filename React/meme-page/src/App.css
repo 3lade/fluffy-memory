@@ -1,0 +1,56 @@
+.nextBtn { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            margin: 10px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+            transition: transform 0.3s ease-in-out; 
+        } 
+        .nextBtn:hover { 
+            background-color: #0056b3; 
+            transform: scale(1.02); 
+        } 
+        .nextBtn:active { 
+            transform: translateY(1px); 
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); 
+        } 
+        .nextBtn:focus { 
+            outline: 2px solid #0056b3; /* For accessibility */ 
+            outline-offset: 2px; 
+        } 
+        body{
+          display: flex;
+          justify-content: center;
+        }
+        .container { 
+            background-color: #f0f0f0; 
+            padding: 20px; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            margin: 10px;
+            max-width: 800px; 
+            width: 600px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+        }
+        h1{
+          background-color: #0056b3;
+          color: #f0f0f0;
+          margin: 10px;
+          padding: 10px;
+        }
+        /* img{
+          margin: 10px;
+          padding: 10px;
+        } */
+        /* Style for centering the button
+        .button-wrapper {
+            text-align: center;
+        } */

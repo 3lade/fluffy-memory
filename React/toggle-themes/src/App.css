@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-button {
+  background-color: blue;
+  transition: transform 0.5s ease-in-out;
+  color: white;
+  width: 90%;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.theme-button:hover {
+  transform: scale(1.05);
+  background-color: teal;
+}

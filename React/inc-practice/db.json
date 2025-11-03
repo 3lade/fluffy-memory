@@ -1,0 +1,58 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "Fiction",
+      "rentalName": "Alice Johnson",
+      "rentalDate": "2025-10-01",
+      "price": 150
+    },
+    {
+      "id": "2",
+      "title": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "genre": "Non-Fiction",
+      "rentalName": "Bob Smith",
+      "rentalDate": "2025-10-03",
+      "price": 200
+    },
+    {
+      "id": "ae57",
+      "title": "game of thrones",
+      "author": "jennifer",
+      "genre": "Fiction",
+      "rentalName": "jaanu",
+      "rentalDate": "2025-10-23",
+      "price": "34"
+    },
+    {
+      "id": "703c",
+      "title": "yeshwanth",
+      "author": "yeshwanth",
+      "genre": "Fiction",
+      "renterName": "100",
+      "rentalDate": "2025-10-14",
+      "price": "433"
+    },
+    {
+      "id": "78fa",
+      "title": "game of thrones",
+      "author": "targerian",
+      "genre": "Fiction",
+      "renterName": "ysh",
+      "rentalDate": "2025-10-02",
+      "price": "199"
+    },
+    {
+      "id": "9077",
+      "title": "panni",
+      "author": "panni",
+      "genre": "Non-Fiction",
+      "renterName": "panni",
+      "rentalDate": "2025-10-14",
+      "price": "677"
+    }
+  ]
+}

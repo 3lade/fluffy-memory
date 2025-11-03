@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 80%;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+input:hover {
+  background-color: azure;
+}

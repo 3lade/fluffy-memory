@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    
+    
+}
+
+
+
+.card {
+    border: 3px solid black;
+    margin: 10px;
+
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.card:hover {
+    transform: scale(2px);
+    transition: transform 0.3 ease-in-out;
+}

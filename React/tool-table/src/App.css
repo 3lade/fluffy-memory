@@ -1,0 +1,25 @@
+.container {
+  text-align: center;
+  max-width: 500px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.submit-btn {
+  background-color: teal;
+  color: white;
+}
+
+.remove-btn {
+  background-color: red;
+  color: white;
+}
+
+.tool-table {
+  border-collapse: collapse;
+}
